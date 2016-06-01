@@ -764,12 +764,29 @@
 						<!-- userfiles/** --><!-- ,/**/*.jsp -->,
 						test/**
 					</warSourceExcludes>
-					<webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory><!-- 
-					<webXml>${project.basedir}/target/jspweb.xml</webXml> -->
+					<!-- 
+					<webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+					 -->
+					 <!-- change the lib directory to  /src/main/webapp/WEB-INF0/lib-->
+					<webappDirectory>${basedir}/src/main/webapp</webappDirectory>
+					<!--<webXml>${project.basedir}/target/jspweb.xml</webXml> -->
 					<warName>${project.artifactId}</warName>
 				</configuration>
 			</plugin>
-			
+			<!-- Change the default packing directory of maven -->
+			<!-- 
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webappDirectory>${basedir}/src/main/webapp</webappDirectory>
+					<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+					<packagingExcludes>WEB-INF/lib/selenium*.jar,WEB-INF/lib/htmlunit*.jar,WEB-INF/lib/httpclient*.jar,WEB-INF/lib/httpcore*.jar,WEB-INF/lib/httpmime*.jar,WEB-INF/lib/commons-codec-1.5.jar,WEB-INF/lib/commons-lang-2.3.jar,WEB-INF/lib/cglib-nodep*.jar,
+						WEB-INF/lib/json-*.jar,WEB-INF/lib/serializer*.jar,WEB-INF/lib/xalan*.jar,WEB-INF/lib/xercesImpl*.jar,WEB-INF/lib/xml-apis*.jar,WEB-INF/lib/nekohtml*.jar,WEB-INF/lib/cssparser*.jar,WEB-INF/lib/sac*.jar,WEB-INF/lib/commons-exec*.jar,WEB-INF/lib/jna-*.jar,
+						WEB-INF/lib/platform*.jar,WEB-INF/lib/webbit*.jar,WEB-INF/lib/netty*.jar,WEB-INF/lib/tomcat*.jar
+					</packagingExcludes>
+				</configuration>
+			</plugin>	
+			 -->
 			<!-- Eclipse 插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
